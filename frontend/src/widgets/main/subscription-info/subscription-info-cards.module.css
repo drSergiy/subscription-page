@@ -1,7 +1,7 @@
 .cardItem {
     padding: var(--mantine-spacing-sm);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--tv-paper);
+    border: 1px solid var(--tv-rule);
     border-radius: var(--mantine-radius-md);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

@@ -1,0 +1,70 @@
+.sectionTitle {
+    font-family: Unbounded, sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+    color: var(--tv-ink);
+    margin-bottom: 16px;
+}
+
+/* Аккордеон на линейках — без карточек и фонов */
+.item {
+    border-bottom: 1px solid var(--tv-rule);
+}
+
+.item:first-of-type {
+    border-top: 1px solid var(--tv-rule);
+}
+
+.control {
+    padding: 15px 0;
+    background: transparent;
+}
+
+.control:hover {
+    background: transparent;
+}
+
+.label {
+    color: var(--tv-ink);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0;
+}
+
+.chevron {
+    color: var(--tv-ink);
+}
+
+.content {
+    padding: 0 0 16px;
+}
+
+.answer {
+    color: var(--tv-mute);
+    line-height: 1.55;
+}
+
+.copyButton {
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
+    background: var(--tv-paper);
+    color: var(--tv-ink);
+    font-weight: 500;
+    height: 44px;
+}
+
+/* Поддержка — второе по важности действие, поэтому красная */
+.supportButton {
+    background: var(--tv-red);
+    border: 1px solid var(--tv-red);
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    height: 44px;
+}
+
+.supportButton:hover {
+    background: var(--tv-red-deep);
+    border-color: var(--tv-red-deep);
+}

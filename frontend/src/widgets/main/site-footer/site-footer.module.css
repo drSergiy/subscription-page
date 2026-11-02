@@ -1,0 +1,44 @@
+.footer {
+    padding: 26px 16px 32px;
+}
+
+.linkSolid {
+    background: var(--tv-ink);
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
+    color: var(--tv-paper);
+    font-weight: 500;
+    height: 44px;
+}
+
+.linkSolid:hover {
+    background: #2a2a2a;
+}
+
+.linkOutline {
+    background: var(--tv-paper);
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
+    color: var(--tv-ink);
+    font-weight: 500;
+    height: 44px;
+}
+
+.mark {
+    width: 26px;
+    height: 26px;
+    flex: none;
+}
+
+.brandName {
+    font-family: Unbounded, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--tv-ink);
+}
+
+.note {
+    color: var(--tv-mute);
+    font-size: 12.5px;
+    line-height: 1.6;
+}

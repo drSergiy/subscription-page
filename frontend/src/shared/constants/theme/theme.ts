@@ -6,8 +6,8 @@ export const theme = createTheme({
     components,
     cursorType: 'pointer',
     fontFamily:
-        'Montserrat, Vazirmatn, Apple Color Emoji, Noto Sans SC, Twemoji Country Flags, sans-serif',
-    fontFamilyMonospace: 'Fira Mono, monospace',
+        '"Golos Text", Vazirmatn, Apple Color Emoji, Noto Sans SC, Twemoji Country Flags, sans-serif',
+    fontFamilyMonospace: '"Fira Mono", monospace',
     breakpoints: {
         xs: '25em',
         sm: '30em',
@@ -20,79 +20,71 @@ export const theme = createTheme({
     },
     scale: 1,
     fontSmoothing: true,
-    focusRing: 'never',
+    focusRing: 'auto',
     white: '#ffffff',
-    black: '#24292f',
+    black: '#000000',
     colors: {
+        // Фирменный красный: взят из логотипа (#c02623)
+        red: [
+            '#fdeceb',
+            '#f8d1d0',
+            '#efa6a4',
+            '#e47a77',
+            '#d5504c',
+            '#c02623',
+            '#a81f1c',
+            '#8b1916',
+            '#6d1311',
+            '#4f0d0c'
+        ],
+        // Нейтральная шкала страницы: от бумаги к чернилам
+        gray: [
+            '#f7f7f6',
+            '#f1f1f0',
+            '#e6e6e4',
+            '#dededc',
+            '#c8c8c5',
+            '#a8a8a4',
+            '#6b6b6b',
+            '#4a4a4a',
+            '#2a2a2a',
+            '#000000'
+        ],
         dark: [
-            '#c9d1d9',
-            '#b1bac4',
-            '#8b949e',
-            '#6e7681',
-            '#484f58',
-            '#30363d',
-            '#21262d',
-            '#161b22',
-            '#0d1117',
-            '#010409'
-        ],
-
-        blue: [
-            '#ddf4ff',
-            '#b6e3ff',
-            '#80ccff',
-            '#54aeff',
-            '#218bff',
-            '#0969da',
-            '#0550ae',
-            '#033d8b',
-            '#0a3069',
-            '#002155'
-        ],
-        green: [
-            '#dafbe1',
-            '#aceebb',
-            '#6fdd8b',
-            '#4ac26b',
-            '#2da44e',
-            '#1a7f37',
-            '#116329',
-            '#044f1e',
-            '#003d16',
-            '#002d11'
-        ],
-        yellow: [
-            '#fff8c5',
-            '#fae17d',
-            '#eac54f',
-            '#d4a72c',
-            '#bf8700',
-            '#9a6700',
-            '#7d4e00',
-            '#633c01',
-            '#4d2d00',
-            '#3b2300'
-        ],
-        orange: [
-            '#fff1e5',
-            '#ffd8b5',
-            '#ffb77c',
-            '#fb8f44',
-            '#e16f24',
-            '#bc4c00',
-            '#953800',
-            '#762c00',
-            '#5c2200',
-            '#471700'
+            '#f7f7f6',
+            '#e6e6e4',
+            '#c8c8c5',
+            '#a8a8a4',
+            '#6b6b6b',
+            '#4a4a4a',
+            '#2a2a2a',
+            '#151515',
+            '#0a0a0a',
+            '#000000'
         ]
     },
-    primaryShade: 8,
-    primaryColor: 'cyan',
+    primaryShade: 5,
+    primaryColor: 'red',
     autoContrast: true,
     luminanceThreshold: 0.3,
     headings: {
         fontFamily: 'Unbounded, Vazirmatn, Apple Color Emoji, Noto Sans SC, sans-serif',
-        fontWeight: '600'
+        fontWeight: '700',
+        sizes: {
+            h1: { fontSize: '26px', lineHeight: '1.2' },
+            h2: { fontSize: '21px', lineHeight: '1.25' },
+            h3: { fontSize: '17px', lineHeight: '1.3' },
+            h4: { fontSize: '15px', lineHeight: '1.35' },
+            h5: { fontSize: '14px', lineHeight: '1.4' },
+            h6: { fontSize: '13px', lineHeight: '1.4' }
+        }
+    },
+    radius: {
+        xs: '2px',
+        sm: '4px',
+        md: '4px',
+        lg: '4px',
+        xl: '6px'
     },
     defaultRadius: 'md'
 })

@@ -52,12 +52,12 @@ export function LanguagePicker(props: IProps) {
         <Menu position="bottom" width={150} withArrow={false} withinPortal>
             <Menu.Target>
                 <ActionIcon
-                    color="gray"
                     radius="md"
                     size="xl"
                     style={{
-                        background: 'rgba(255, 255, 255, 0.02)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
+                        background: 'var(--tv-paper)',
+                        border: '1px solid var(--tv-ink)',
+                        color: 'var(--tv-ink)'
                     }}
                     variant="default"
                 >

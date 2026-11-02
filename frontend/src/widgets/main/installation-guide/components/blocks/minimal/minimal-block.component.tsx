@@ -29,7 +29,7 @@ export const MinimalBlockRenderer = ({
                                 svgIconKey={block.svgIconKey}
                             />
                             <Text
-                                c="white"
+                                
                                 dangerouslySetInnerHTML={{
                                     __html: getLocalizedText(block.title, currentLang)
                                 }}

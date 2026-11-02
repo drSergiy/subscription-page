@@ -1,10 +1,13 @@
-/* Timeline styles */
 .timelineRoot {
-    --tl-line-color: rgba(255, 255, 255, 0.08);
+    --tl-line-color: var(--tv-rule);
 }
 
 .timelineItem {
-    padding-bottom: var(--mantine-spacing-md);
+    padding-bottom: 26px;
+}
+
+.timelineItem:last-of-type {
+    padding-bottom: 0;
 }
 
 .timelineItemBullet {
@@ -12,15 +15,31 @@
     border: none !important;
 }
 
-.bulletIconSvg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
+/* Номер шага: квадрат, а не кружок — перекликается со скруглением кнопок */
+.num {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background: var(--tv-ink);
+    color: var(--tv-paper);
+    font-family: Unbounded, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
 }
 
-.bulletIconSvg svg {
-    width: 18px;
-    height: 18px;
+.numKey {
+    background: var(--tv-red);
+}
+
+.stepTitle {
+    color: var(--tv-ink);
+    font-weight: 600;
+}
+
+.stepText {
+    color: var(--tv-mute);
+    line-height: 1.55;
 }

@@ -1,0 +1,33 @@
+.done {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--tv-rule);
+}
+
+.mark {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background: var(--tv-ink);
+    color: var(--tv-paper);
+    flex: none;
+}
+
+.title {
+    font-family: Unbounded, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--tv-ink);
+}
+
+.videoButton {
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
+    background: var(--tv-paper);
+    color: var(--tv-ink);
+    font-weight: 500;
+    height: 44px;
+}

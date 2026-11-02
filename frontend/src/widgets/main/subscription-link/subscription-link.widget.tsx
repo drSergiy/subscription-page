@@ -38,38 +38,32 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
         notifications.show({
             title: t(baseTranslations.linkCopied),
             message: t(baseTranslations.linkCopiedToClipboard),
-            color: 'cyan'
+            color: 'red'
         })
         clipboard.copy(subscriptionUrl)
     }
 
     const renderSupportLink = (supportUrl: string) => {
         const iconConfig = {
-            't.me': { icon: IconBrandTelegram, color: '#0088cc' },
-            'discord.com': { icon: IconBrandDiscord, color: '#5865F2' },
-            'vk.com': { icon: IconBrandVk, color: '#0077FF' }
+            't.me': { icon: IconBrandTelegram },
+            'discord.com': { icon: IconBrandDiscord },
+            'vk.com': { icon: IconBrandVk }
         }
 
         const matchedPlatform = Object.entries(iconConfig).find(([domain]) =>
             supportUrl.includes(domain)
         )
 
-        const { icon: Icon, color } = matchedPlatform
-            ? matchedPlatform[1]
-            : { icon: IconMessageChatbot, color: 'cyan' }
+        const { icon: Icon } = matchedPlatform ? matchedPlatform[1] : { icon: IconMessageChatbot }
 
         return (
             <ActionIcon
-                c={color}
+                className={classes.actionIcon}
                 component="a"
                 href={supportUrl}
                 radius="md"
                 rel="noopener noreferrer"
                 size="xl"
-                style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
                 target="_blank"
                 variant="default"
             >
@@ -82,8 +76,8 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
         vibrate('tap')
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
-            whiteColor: '#161B22',
-            blackColor: '#22d3ee'
+            whiteColor: '#ffffff',
+            blackColor: '#000000'
         })
 
         modals.open({
@@ -100,7 +94,7 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                         src={`data:image/svg+xml;utf8,${encodeURIComponent(subscriptionQrCode)}`}
                         style={{ borderRadius: 'var(--mantine-radius-md)' }}
                     />
-                    <Text c="white" fw={600} size="lg" ta="center">
+                    <Text className={classes.qrTitle} fw={600} size="lg" ta="center">
                         {t(baseTranslations.scanQrCode)}
                     </Text>
                     <Text c="dimmed" size="sm" ta="center">
@@ -108,11 +102,12 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                     </Text>
 
                     <Button
+                        className={classes.copyLinkButton}
                         fullWidth
                         leftSection={<IconCopy />}
                         onClick={handleCopy}
                         radius="md"
-                        variant="light"
+                        variant="default"
                     >
                         {t(baseTranslations.copyLink)}
                     </Button>

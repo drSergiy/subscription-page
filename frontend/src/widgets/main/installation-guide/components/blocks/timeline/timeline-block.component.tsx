@@ -1,7 +1,7 @@
 import { Stack, Text, Timeline } from '@mantine/core'
+import clsx from 'clsx'
 
-import { getColorGradientSolid, getLocalizedText } from '@shared/utils/config-parser'
-import { ThemeIconShared } from '@shared/ui'
+import { getLocalizedText } from '@shared/utils/config-parser'
 
 import { IBlockRendererProps } from '../renderer-block.interface'
 import classes from './timeline-block.module.css'
@@ -10,57 +10,52 @@ export const TimelineBlockRenderer = ({
     blocks,
     isMobile,
     currentLang,
-    renderBlockButtons,
-    getIconFromLibrary
+    renderBlockButtons
 }: IBlockRendererProps) => {
     return (
         <Timeline
             active={blocks.length}
-            bulletSize={isMobile ? 36 : 44}
+            bulletSize={30}
             classNames={{
                 root: classes.timelineRoot,
                 item: classes.timelineItem,
                 itemBullet: classes.timelineItemBullet
             }}
-            color="cyan"
-            lineWidth={2}
+            lineWidth={1}
         >
             {blocks.map((block, index) => {
-                const gradientStyle = getColorGradientSolid(block.svgIconColor)
+                // Шаг с добавлением подписки — главное действие, его и выделяем красным
+                const isKeyStep = block.buttons.some(
+                    (button) => button.type === 'subscriptionLink'
+                )
 
                 return (
                     <Timeline.Item
                         bullet={
-                            <ThemeIconShared
-                                getIconFromLibrary={getIconFromLibrary}
-                                gradientStyle={gradientStyle}
-                                isMobile={isMobile}
-                                svgIconColor={block.svgIconColor}
-                                svgIconKey={block.svgIconKey}
-                            />
+                            <span className={clsx(classes.num, isKeyStep && classes.numKey)}>
+                                {index + 1}
+                            </span>
                         }
                         key={index}
                         title={
                             <Text
-                                c="white"
+                                className={classes.stepTitle}
                                 dangerouslySetInnerHTML={{
                                     __html: getLocalizedText(block.title, currentLang)
                                 }}
-                                fw={600}
                                 size={isMobile ? 'sm' : 'md'}
                             />
                         }
                     >
-                        <Stack gap="xs">
+                        <Stack gap="sm" pt={4}>
                             <Text
-                                c="dimmed"
+                                className={classes.stepText}
                                 dangerouslySetInnerHTML={{
                                     __html: getLocalizedText(block.description, currentLang)
                                 }}
                                 size={isMobile ? 'xs' : 'sm'}
-                                style={{ lineHeight: 1.6 }}
                             />
-                            {renderBlockButtons(block.buttons, 'light')}
+                            {renderBlockButtons(block.buttons, 'default')}
                         </Stack>
                     </Timeline.Item>
                 )

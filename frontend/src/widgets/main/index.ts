@@ -1,4 +1,7 @@
+export * from './help'
 export * from './installation-guide'
 export * from './raw-keys'
+export * from './setup-done'
+export * from './site-footer'
 export * from './subscription-info'
 export * from './subscription-link'

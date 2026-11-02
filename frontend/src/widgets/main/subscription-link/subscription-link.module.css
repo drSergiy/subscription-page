@@ -1,8 +1,7 @@
 .modalContent {
-    background: rgba(22, 27, 35, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--tv-paper);
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
 }
 
 .modalHeader {
@@ -10,11 +9,33 @@
 }
 
 .modalTitle {
+    font-family: Unbounded, sans-serif;
     font-weight: 600;
-    color: white;
+    color: var(--tv-ink);
 }
 
+.qrTitle {
+    color: var(--tv-ink);
+}
+
+.copyLinkButton {
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
+    background: var(--tv-paper);
+    color: var(--tv-ink);
+    font-weight: 500;
+    height: 44px;
+}
+
+/* Квадратные контурные кнопки в шапке */
 .actionIcon {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--tv-paper);
+    border: 1px solid var(--tv-ink);
+    border-radius: 4px;
+    color: var(--tv-ink);
+}
+
+.actionIcon:hover {
+    background: var(--tv-ink);
+    color: var(--tv-paper);
 }

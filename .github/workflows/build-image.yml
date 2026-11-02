@@ -11,8 +11,44 @@ env:
   IMAGE: ghcr.io/${{ github.repository_owner }}/subscription-page
 
 jobs:
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fail if .env is tracked
+        run: |
+          if git ls-files --error-unmatch '.env' '**/.env' 2>/dev/null; then
+            echo "::error::Файл .env попал в репозиторий. Удалите его из индекса."
+            exit 1
+          fi
+          echo "Файлов .env в репозитории нет."
+
+      - name: Install gitleaks
+        run: |
+          curl -sSL -o gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf gitleaks.tar.gz gitleaks
+          sudo mv gitleaks /usr/local/bin/
+          gitleaks version
+        env:
+          GITLEAKS_VERSION: 8.29.0
+
+      - name: Scan working tree
+        run: gitleaks dir . --redact --verbose --config .gitleaks.toml
+
+      - name: Scan commit history
+        run: gitleaks git . --redact --verbose --config .gitleaks.toml
+
   build:
     name: Build and push
+    needs: [secrets]
     runs-on: ubuntu-latest
     permissions:
       contents: read

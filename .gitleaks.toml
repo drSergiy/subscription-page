@@ -1,0 +1,40 @@
+# Правила поиска секретов. Берём стандартный набор gitleaks и добавляем
+# то, что специфично для Remnawave.
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "remnawave-api-token"
+description = "Токен API панели Remnawave"
+regex = '''(?i)REMNAWAVE_API_TOKEN\s*=\s*["']?[A-Za-z0-9._\-]{20,}'''
+tags = ["remnawave", "token"]
+
+[[rules]]
+id = "caddy-auth-token"
+description = "Токен Caddy / Tiny Auth"
+regex = '''(?i)CADDY_AUTH_API_TOKEN\s*=\s*["']?[A-Za-z0-9._\-]{12,}'''
+tags = ["remnawave", "token"]
+
+[[rules]]
+id = "cloudflare-zero-trust-secret"
+description = "Секрет Cloudflare Zero Trust"
+regex = '''(?i)CLOUDFLARE_ZERO_TRUST_CLIENT_SECRET\s*=\s*["'][A-Za-z0-9._\-]{12,}["']'''
+tags = ["cloudflare", "secret"]
+
+[[rules]]
+id = "marzban-legacy-secret"
+description = "Секретный ключ Marzban"
+regex = '''(?i)MARZBAN_LEGACY_SECRET_KEY\s*=\s*["']?[A-Za-z0-9._\-]{12,}'''
+tags = ["marzban", "secret"]
+
+[allowlist]
+description = "Что не считается утечкой"
+paths = [
+    # Шаблон с пустыми полями — в нём значений нет по определению
+    '''^\.env\.sample$''',
+    # Зависимости и сборка
+    '''(^|/)node_modules/''',
+    '''(^|/)package-lock\.json$''',
+    '''(^|/)dist/''',
+]

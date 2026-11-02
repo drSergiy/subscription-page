@@ -93,9 +93,11 @@
     font-weight: 600;
 }
 
-.stepButtonKey:hover {
-    background: var(--tv-red-deep);
-    border-color: var(--tv-red-deep);
+@media (hover: hover) {
+    .stepButtonKey:hover {
+        background: var(--tv-red-deep);
+        border-color: var(--tv-red-deep);
+    }
 }
 
 .btnIcon {

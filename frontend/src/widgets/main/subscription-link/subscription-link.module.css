@@ -35,7 +35,9 @@
     color: var(--tv-ink);
 }
 
-.actionIcon:hover {
-    background: var(--tv-ink);
-    color: var(--tv-paper);
+@media (hover: hover) {
+    .actionIcon:hover {
+        background: var(--tv-ink);
+        color: var(--tv-paper);
+    }
 }

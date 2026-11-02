@@ -11,8 +11,10 @@
     height: 44px;
 }
 
-.linkSolid:hover {
-    background: #2a2a2a;
+@media (hover: hover) {
+    .linkSolid:hover {
+        background: #2a2a2a;
+    }
 }
 
 .linkOutline {

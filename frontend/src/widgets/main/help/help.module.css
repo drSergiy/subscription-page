@@ -64,7 +64,9 @@
     height: 44px;
 }
 
-.supportButton:hover {
-    background: var(--tv-red-deep);
-    border-color: var(--tv-red-deep);
+@media (hover: hover) {
+    .supportButton:hover {
+        background: var(--tv-red-deep);
+        border-color: var(--tv-red-deep);
+    }
 }
